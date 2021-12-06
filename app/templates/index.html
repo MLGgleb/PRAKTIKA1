@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="text-align: center">
+ <div class="card text-white bg-primary mb-3" style="max-width: 45rem; margin-right: auto; margin-left: auto;">
+  <h1>Hi, {{ user.username }}! Comment on this video below.</h1>
+ </div>
+</div>
+<div style="max-width: 45rem; margin-right: auto; margin-left: auto; margin-bottom: 1rem" class="input-group input-group-lg bg-dark">
+  <input type="text" class="form-control text-white bg-dark border-primary" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+  <span class="input-group-text text-white bg-dark border-primary" id="inputGroup-sizing-lg"><button href="#" class="btn btn-outline-primary btn-lg" type="submit">Send!</button></span>
+</div>
+ {% for post in posts %}
+  <div class="card text-white bg-dark border-primary mb-3" style="max-width: 45rem; margin-left: auto; margin-right: auto; border-bottom: 1rem">
+   <div class="card-body">
+       <p><b style="text-align: left" class="card text-white bg-primary">{{ post.author.username }}</b><b class="card bg-dark border-dark">says: {{ post.body }}</b></p>
+   </div>
+  </div>
+ {% endfor %}
+{% endblock %}
